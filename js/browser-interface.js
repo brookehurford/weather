@@ -21,12 +21,15 @@ $(document).ready(function(){
     var temp;
     $('#location').val("");
     $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey).then(function(response){
-      $('.showWeather').text("The temperature in " + city + " is " + response.main.temp);
+      temp = response.main.temp;
+      $('.showWeather').text("The temperature in " + city + " is " + temp);
     });
     $('#tempButtons').show();
+    $('#toCelsius').click(function(){
+      $('.showWeather').text("The temperature in " + city + " is " + toCelsius(temp) + " degrees celsius.");
+    });
+    $('#toFar').click(function(){
+      $('.showWeather').text("The temperature in " + city + " is " + toFar(temp) + " degrees fahrenheit.");
+    });
   });
 });
-
-// $('#toCelsius').click(function(){
-//   return toCelsius(response.main.temp);
-// });

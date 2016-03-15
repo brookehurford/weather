@@ -1,7 +1,7 @@
-function toCelsius(temp) {
+exports.toCelsius = function(temp) {
   return temp - 273.15;
 }
 
-function toFar(temp) {
+exports.toFar = function(temp) {
   return (temp * (9/5)) - 459.67;
 }
